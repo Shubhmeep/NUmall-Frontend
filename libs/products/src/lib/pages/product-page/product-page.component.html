@@ -1,7 +1,7 @@
 <div class="product-page" *ngIf="product">
   <div class="p-grid">
-    <div class="p-col-6">
-      <ui-gallery [images]="product.images"></ui-gallery>
+    <div class="p-col-6">`
+      <img [src]="product.image" class="image" alt="" />
     </div>
     <div class="p-col-6 product">
       <h2 class="product-name">{{ product.name }}</h2>
@@ -12,8 +12,8 @@
         <p-rating [(ngModel)]="product.rating" [cancel]="false" [disabled]="true"></p-rating>
       </div>
       <div class="product-price">
-        {{ product.price | currency }}
-        <span class="price-before">{{ product.price + 18 | currency }}</span>
+        {{ product.price | currency : 'INR' }}
+        <span class="price-before">{{ product.price + 18 | currency : 'INR' }}</span>
       </div>
       <div class="product-quantity">
         <div class="p-field p-col-12 p-md-3 p-p-0">

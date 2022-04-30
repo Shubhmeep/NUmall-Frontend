@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ui-banner',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class BannerComponent {
-  constructor() {}
+  constructor(
+    private router: Router
+  ) {}
+
+  onProducts() {
+    this.router.navigate(['/products']);
+  }
 }

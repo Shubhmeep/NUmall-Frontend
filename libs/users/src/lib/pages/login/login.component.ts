@@ -43,6 +43,12 @@ export class LoginComponent implements OnInit {
       (user) => {
         this.authError = false;
         this.localstorageService.setToken(user.token);
+        const token = this.localstorageService.getToken();
+        const tokenDecode = JSON.parse(atob(token.split('.')[1]));
+        if (!tokenDecode.isAdmin){
+          this.authError = true;
+          this.authMessage = "User Not Authorized"
+        }
         this.router.navigate(['/']);
       },
       (error: HttpErrorResponse) => {

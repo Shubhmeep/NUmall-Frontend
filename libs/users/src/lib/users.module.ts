@@ -10,11 +10,18 @@ import { EffectsModule } from '@ngrx/effects';
 import * as fromUsers from './state/users.reducer';
 import { UsersEffects } from './state/users.effects';
 import { UsersFacade } from './state/users.facade';
+import { ProfileComponent } from './components/profile/user-login.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { AuthGuard } from "@bluebits/users";
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'profile',
+    component : ProfileComponent
   }
 ];
 
@@ -29,7 +36,11 @@ const routes: Routes = [
     StoreModule.forFeature(fromUsers.USERS_FEATURE_KEY, fromUsers.reducer),
     EffectsModule.forFeature([UsersEffects])
   ],
-  declarations: [LoginComponent],
-  providers: [UsersFacade]
+  declarations: [LoginComponent, ProfileComponent, UserProfileComponent],
+  providers: [UsersFacade],
+  exports: [
+  
+    UserProfileComponent
+  ],
 })
 export class UsersModule {}

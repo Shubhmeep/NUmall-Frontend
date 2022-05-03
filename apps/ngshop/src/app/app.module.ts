@@ -19,8 +19,24 @@ import { MessageService } from 'primeng/api';
 import { JwtInterceptor, UsersModule } from '@bluebits/users';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { AuthGuard } from '@bluebits/users';
+import { ProfileComponent } from '../../../../libs/users/src/lib/components/profile/user-login.component'
 
-const routes: Routes = [{ path: '', component: HomePageComponent }];
+const routes: Routes = [
+  { 
+   
+    path : '',
+    component: HomePageComponent
+  },
+
+  {
+    path : "profile",
+    canActivate : [AuthGuard],
+    component : ProfileComponent
+  }
+   
+     
+];
 
 @NgModule({
   declarations: [

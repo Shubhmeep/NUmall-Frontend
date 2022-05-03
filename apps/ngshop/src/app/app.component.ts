@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.usersService.initAppSession();
+    this.usersService.observeCurrentUser();
   }
   title = 'ngshop';
 }

@@ -51,9 +51,9 @@
             <div class="p-field p-col-4">
               <label for="color">Phone</label><br />
               <p-inputMask
-                mask="(999) 999-9999"
+                mask="9999999999"
                 formControlName="phone"
-                placeholder="(999) 999-9999"
+                placeholder="9999999999"
               ></p-inputMask>
               <small *ngIf="userForm.phone.invalid && isSubmitted" class="p-error"
                 >phone is required</small
